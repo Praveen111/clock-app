@@ -38,7 +38,7 @@ timer() {
   let time = setInterval(() => {
     if(this.state.timerCounter !== 0) {
       this.setState({timerCounter: this.state.timerCounter - 1});
-      console.log(this.state);
+    //  console.log(this.state);
     }
    else {
     clearInterval(time);
@@ -91,6 +91,10 @@ stopwatch_stop() {
 
 
   render() {
+
+    if (this.state.timerCounter !== 0) {
+      var timeComp =  <h3>CountDown : {this.state.timerCounter}</h3>;
+    } 
     return (
       <div className="App" onLoad={this.startClock()}>
         <header className="App-header">
@@ -111,8 +115,8 @@ stopwatch_stop() {
            <button onClick={this.timer.bind(this)}>CountDown</button>
          
 
-        <h3>CountDown : {this.state.timerCounter}</h3>
-
+       
+ {timeComp}
         
           </div>
 
